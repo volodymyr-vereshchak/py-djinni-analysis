@@ -6,16 +6,12 @@ def analyse(file_name: str, exp: int) -> None:
     df = pd.read_csv(file_name)
     if exp:
         title = f"Analyse technologies with experience = {exp}"
-        df[
-            df["experience"] == exp
-            ]['technologies'].value_counts().head(20).plot(
+        df[df["experience"] == exp]["technologies"].value_counts().head(20).plot(
             kind="bar", title=title
         )
     else:
         title = "Analyse technologies"
-        df['technologies'].value_counts().head(20).plot(
-            kind="bar", title=title
-        )
+        df["technologies"].value_counts().head(20).plot(kind="bar", title=title)
     plot.tight_layout()
     plot.show()
 
